@@ -1,0 +1,333 @@
+:root {
+  --primary: #4F46E5;
+  --primary-dark: #4338CA;
+  --secondary: #10B981;
+  --accent: #8B5CF6;
+  --background: #F9FAFB;
+  --card-bg: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --border: #E5E7EB;
+  --error: #EF4444;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.widget-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  position: relative;
+}
+
+.widget-loader::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spinner 0.8s linear infinite;
+  display: block;
+  margin-top: 50px;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+.widget-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: var(--error);
+  background-color: #FEF2F2;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #FECACA;
+  text-align: center;
+  padding: 1rem;
+}
+
+.widget-error h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.widget-error button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.widget-error button:hover {
+  background-color: var(--primary-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 350px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-dark);
+}
+
+.dashboard-header {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.chart-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  max-height: 400px;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Home page styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.home-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.home-actions {
+  margin-top: 2rem;
+}
+
+.dashboard-link {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.dashboard-link:hover {
+  background-color: var(--primary-dark);
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "revenue trend"
+    "growth growth"
+    "stats stats";
+  gap: 2rem;
+  width: 100%;
+}
+
+.revenue-card {
+  grid-area: revenue;
+}
+
+.trend-card {
+  grid-area: trend;
+}
+
+.growth-card {
+  grid-area: growth;
+}
+
+.stats-card {
+  grid-area: stats;
+}
+
+/* Table Chart Styles */
+.table-chart {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.table-header {
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-chart table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table-chart thead th {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 2px solid var(--border);
+  background-color: var(--card-bg);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table-chart tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s;
+}
+
+.table-chart tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.table-chart td {
+  padding: 12px 15px;
+  vertical-align: middle;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.status-badge.in-stock {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.status-badge.low-stock {
+  background-color: #fff8e1;
+  color: #b06000;
+}
+
+.status-badge.out-of-stock {
+  background-color: #fdeded;
+  color: #c53929;
+}
+
+/* Make layout responsive on smaller screens */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "revenue"
+      "trend"
+      "growth"
+      "stats";
+  }
+}

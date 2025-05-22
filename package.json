@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-dashboard-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.7.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "test:e2e": "npx playwright test --config=playwright/playwright.config.ts",
+    "test:basic": "cd playwright && npx playwright test tests/basic.spec.ts",
+    "test:dashboard": "cd playwright && npx playwright test tests/dashboard-final.spec.ts",
+    "test:e2e:ui": "npx playwright test --config=playwright/playwright.config.ts --ui",
+    "test:e2e:debug": "npx playwright test --config=playwright/playwright.config.ts --debug",
+    "report": "npx playwright show-report playwright-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.21",
+    "turbo": "^2.5.3"
+  }
+}
